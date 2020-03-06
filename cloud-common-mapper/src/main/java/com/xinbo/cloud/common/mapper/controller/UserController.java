@@ -1,7 +1,9 @@
 package com.xinbo.cloud.common.mapper.controller;
 
-import com.xinbo.cloud.common.mapper.entity.Animal;
-import com.xinbo.cloud.common.mapper.entity.User;
+import cn.hutool.core.date.DateTime;
+import cn.hutool.core.util.IdUtil;
+import cn.hutool.crypto.SecureUtil;
+import com.xinbo.cloud.common.mapper.entity.UserEntity;
 import com.xinbo.cloud.common.mapper.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +19,7 @@ public class UserController {
     @GetMapping("/all")
     public String all() {
 
-        User user = userMapper.selectUserById(1L);
+        UserEntity user = userMapper.selectUserById(1L);
 
         return "success"+user.toString();
     }
@@ -31,6 +33,21 @@ public class UserController {
 
     @GetMapping("/add")
     public String add() {
-        return "success";
+
+        String salt = IdUtil.fastSimpleUUID();
+        UserEntity user = UserEntity.builder().name("testSave3").password(SecureUtil.md5("123456" + salt)).salt(salt).email("testSave3@xkcoding.com").phoneNumber("17300000003").status(1).lastLoginTime(new DateTime()).createTime(new DateTime()).lastUpdateTime(new DateTime()).build();
+        int i = userMapper.saveUser(user);
+
+        return "success"+i;
     }
+
+
+    @GetMapping("update")
+    public String update() {
+        String salt = IdUtil.fastSimpleUUID();
+        UserEntity user = UserEntity.builder().id(3L).name("jack11111111").password(SecureUtil.md5("123456" + salt)).salt(salt).email("testSave3@xkcoding.com").phoneNumber("17300000003").status(1).lastLoginTime(new DateTime()).createTime(new DateTime()).lastUpdateTime(new DateTime()).build();
+        int i = userMapper.updateById(user);
+        return "success" + i;
+    }
+
 }

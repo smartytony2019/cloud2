@@ -7,7 +7,9 @@ import java.util.Date;
 
 @Builder
 @Data
-public class User implements Serializable {
+@NoArgsConstructor
+@AllArgsConstructor
+public class UserEntity implements Serializable {
 
     private static final long serialVersionUID = -1840831686851699943L;
 
