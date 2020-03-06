@@ -6,9 +6,15 @@
 
     <groupId>com.xinbo</groupId>
     <artifactId>cloud-dependencis</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.9.RELEASE</version>
+        <relativePath/>
+    </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -21,6 +27,7 @@
         <guava.version>28.1-jre</guava.version>
         <lombok.version>1.18.6</lombok.version>
         <spring-boot.version>2.1.0.RELEASE</spring-boot.version>
+        <mybatis-pagehelper.version>1.2.9</mybatis-pagehelper.version>
     </properties>
 
     <dependencyManagement>
@@ -40,6 +47,12 @@
                 <version>${nacos-discovery.version}</version>
             </dependency>
 
+            <!-- 分页助手 -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${mybatis-pagehelper.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
