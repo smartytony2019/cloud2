@@ -12,7 +12,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-common-mapper</artifactId>
+    <artifactId>cloud-common-service</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>

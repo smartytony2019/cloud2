@@ -8,10 +8,10 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     initialization-mode: always
     continue-on-error: true
-#    schema:
-#      - "classpath:db/schema.sql"
-#    data:
-#      - "classpath:db/data.sql"
+    #    schema:
+    #      - "classpath:db/schema.sql"
+    #    data:
+    #      - "classpath:db/data.sql"
     hikari:
       minimum-idle: 5
       connection-test-query: SELECT 1 FROM DUAL
@@ -30,10 +30,10 @@ mybatis:
     # 下划线转驼峰
     map-underscore-to-camel-case: true
   mapper-locations: classpath:mappers/*.xml
-  type-aliases-package: com.xinbo.cloud.common.mapper2.entity
+  type-aliases-package: com.xinbo.cloud.common.mapper3.model
 mapper:
   mappers:
-    - tk.mybatis.mapper.common.Mapper
+    - com.xinbo.cloud.common.mapper3.util.MyMapper
   not-empty: true
   style: camelhump
   wrap-keyword: "`{0}`"
