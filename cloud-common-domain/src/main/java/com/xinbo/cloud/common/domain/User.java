@@ -6,11 +6,10 @@ import lombok.*;
 import javax.persistence.Table;
 import java.util.Date;
 
-@Data
 @Builder
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "orm_user")
 public class User {
 
     private static final long serialVersionUID = -1840831686851699943L;
@@ -23,7 +22,7 @@ public class User {
     /**
      * 用户名
      */
-     private String name;
+    private String name;
 
     /**
      * 加密后的密码
@@ -33,7 +32,7 @@ public class User {
     /**
      * 加密使用的盐
      */
-   private String salt;
+    private String salt;
 
     /**
      * 邮箱
@@ -48,7 +47,7 @@ public class User {
     /**
      * 状态，-1：逻辑删除，0：禁用，1：启用
      */
-   private Integer status;
+    private Integer status;
 
     /**
      * 创建时间

@@ -14,6 +14,6 @@ public interface CityMapper extends MyMapper<City> {
      * @return 当前id的用户，不存在则是 {@code null}
      */
     @Select("SELECT * FROM orm_user WHERE id = #{id}")
-    User selectUserById(@Param("id") Long id);
+    City selectUserById(@Param("id") Long id);
 
 }

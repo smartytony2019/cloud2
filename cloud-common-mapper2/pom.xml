@@ -18,6 +18,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+
         <dependency>
             <groupId>tk.mybatis</groupId>
             <artifactId>mapper-spring-boot-starter</artifactId>
@@ -49,6 +50,12 @@
             <artifactId>guava</artifactId>
         </dependency>
 
+
+        <dependency>
+            <groupId>com.xinbo</groupId>
+            <artifactId>cloud-common-service</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

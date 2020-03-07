@@ -15,7 +15,29 @@
     <artifactId>cloud-common-mapper</artifactId>
     <packaging>jar</packaging>
 
-    <dependencies>
+    <dependencies> <!-- Spring Boot Begin -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+        </dependency>
+        <!-- Spring Boot End -->
+
+        <!-- Commons Begin -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- Commons End -->
+
         <dependency>
             <groupId>com.xinbo</groupId>
             <artifactId>cloud-common-domain</artifactId>

@@ -18,7 +18,7 @@
     <dependencies>
         <dependency>
             <groupId>com.xinbo</groupId>
-            <artifactId>cloud-common-domain</artifactId>
+            <artifactId>cloud-common-mapper</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
