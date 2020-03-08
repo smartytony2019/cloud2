@@ -1,4 +1,4 @@
-package com.xinbo.cloud.common.domain;
+package com.xinbo.cloud.common.domain.common;
 
 
 import lombok.*;

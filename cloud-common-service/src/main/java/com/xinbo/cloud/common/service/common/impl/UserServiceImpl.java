@@ -1,9 +1,7 @@
-package com.xinbo.cloud.common.service.impl;
+package com.xinbo.cloud.common.service.common.impl;
 
-import com.xinbo.cloud.common.domain.User;
-import com.xinbo.cloud.common.mapper.UserMapper;
-import com.xinbo.cloud.common.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.xinbo.cloud.common.domain.common.User;
+import com.xinbo.cloud.common.service.common.UserService;
 import org.springframework.stereotype.Service;
 
 @Service("userServiceImpl")

@@ -9,28 +9,28 @@ import com.xinbo.cloud.common.enums.ResponseCodeEnum;
 public class ResultFactory {
 
 
-    public static ResponseResult Success() {
-        return ResponseResult.builder().code(ResponseCodeEnum.SUCCESS.value()).build();
+    public static ActionResult Success() {
+        return ActionResult.builder().code(ResponseCodeEnum.SUCCESS.value()).build();
     }
 
-    public static ResponseResult Success(Object data) {
-        return ResponseResult.builder().code(ResponseCodeEnum.SUCCESS.value()).data(data).build();
+    public static ActionResult Success(Object data) {
+        return ActionResult.builder().code(ResponseCodeEnum.SUCCESS.value()).data(data).build();
     }
 
-    public static ResponseResult Success(Object data, String msg) {
-        return ResponseResult.builder().code(ResponseCodeEnum.SUCCESS.value()).data(data).msg(msg).build();
+    public static ActionResult Success(Object data, String msg) {
+        return ActionResult.builder().code(ResponseCodeEnum.SUCCESS.value()).data(data).msg(msg).build();
     }
 
 
-    public static ResponseResult Error() {
-        return ResponseResult.builder().code(ResponseCodeEnum.FAILURE.value()).build();
+    public static ActionResult Error() {
+        return ActionResult.builder().code(ResponseCodeEnum.FAILURE.value()).build();
     }
 
-    public static ResponseResult Error(Object data) {
-        return ResponseResult.builder().code(ResponseCodeEnum.FAILURE.value()).data(data).build();
+    public static ActionResult Error(Object data) {
+        return ActionResult.builder().code(ResponseCodeEnum.FAILURE.value()).data(data).build();
     }
 
-    public static ResponseResult Error(Object data, String msg) {
-        return ResponseResult.builder().code(ResponseCodeEnum.FAILURE.value()).data(data).msg(msg).build();
+    public static ActionResult Error(Object data, String msg) {
+        return ActionResult.builder().code(ResponseCodeEnum.FAILURE.value()).data(data).msg(msg).build();
     }
 }
