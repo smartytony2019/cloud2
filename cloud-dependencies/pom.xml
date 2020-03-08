@@ -30,6 +30,7 @@
         <spring-boot.version>4.2.1.RELEASE</spring-boot.version>
 
 
+        <swagger2.version>2.9.2</swagger2.version>
 
         <spring-boot-alibaba-druid.version>1.1.10</spring-boot-alibaba-druid.version>
         <spring-cloud.version>Finchley.SR2</spring-cloud.version>
@@ -105,6 +106,16 @@
                 <version>${guava.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

@@ -5,12 +5,11 @@ import com.xinbo.cloud.common.domain.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import org.springframework.stereotype.Component;
 import tk.mybatis.mapper.MyMapper;
 
 
 @Mapper
-public interface UserMapper {
+public interface UserMapper extends MyMapper<User> {
 
 
     /**
