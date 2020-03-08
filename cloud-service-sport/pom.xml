@@ -6,6 +6,7 @@
         <artifactId>cloud-dependencis</artifactId>
         <groupId>com.xinbo</groupId>
         <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../cloud-dependencies/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -33,14 +34,16 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.github.dozermapper</groupId>
-            <artifactId>dozer-core</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>com.xinbo</groupId>
             <artifactId>cloud-common-service</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xinbo</groupId>
+            <artifactId>cloud-common-vo</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
