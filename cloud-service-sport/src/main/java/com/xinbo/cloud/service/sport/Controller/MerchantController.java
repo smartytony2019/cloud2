@@ -1,6 +1,9 @@
 package com.xinbo.cloud.service.sport.Controller;
 
+import com.github.dozermapper.core.DozerBeanMapperBuilder;
+import com.github.dozermapper.core.Mapper;
 import com.xinbo.cloud.common.domain.common.Merchant;
+import com.xinbo.cloud.common.dto.common.MerchantDto;
 import com.xinbo.cloud.common.dto.ActionResult;
 import com.xinbo.cloud.common.dto.ResultFactory;
 import com.xinbo.cloud.common.service.common.MerchantService;
@@ -27,7 +30,12 @@ public class MerchantController {
     public ActionResult get() {
         long merchantId = 1230835262695804929L;
         List<Merchant> list = merchantService.get(merchantId);
-        return ResultFactory.Success(list);
+
+        Merchant merchant = list.get(0);
+        Mapper mapper = DozerBeanMapperBuilder.buildDefault();
+        MerchantDto dto = mapper.map(merchant, MerchantDto.class);
+
+        return ResultFactory.Success(dto);
     }
 
 }

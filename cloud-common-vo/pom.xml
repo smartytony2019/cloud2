@@ -6,41 +6,44 @@
         <artifactId>cloud-dependencis</artifactId>
         <groupId>com.xinbo</groupId>
         <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../cloud-dependencies/pom.xml</relativePath>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-service-sport</artifactId>
+    <artifactId>cloud-common-vo</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0.0-SNAPSHOT</version>
 
 
     <dependencies>
+        <!-- Spring Begin -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <scope>provided</scope>
         </dependency>
+        <!-- Spring End -->
+
+        <!-- Commons Begin -->
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+        <!-- Commons End -->
 
         <dependency>
             <groupId>tk.mybatis</groupId>
             <artifactId>mapper-spring-boot-starter</artifactId>
         </dependency>
-
         <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.dozermapper</groupId>
-            <artifactId>dozer-core</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
 
         <dependency>
             <groupId>com.xinbo</groupId>
-            <artifactId>cloud-common-service</artifactId>
+            <artifactId>cloud-common</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
