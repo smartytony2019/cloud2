@@ -4,18 +4,10 @@ import com.xinbo.cloud.common.domain.User;
 import com.xinbo.cloud.common.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.MyMapper;
 
+public interface UserService {
 
-@Service
-public class UserService {
-
-
-    @Autowired
-    private UserMapper userMapper;
-
-
-    public User getOne(long id) {
-        return userMapper.selectUserById(id);
-    }
+    User getOne(long id);
 
 }
