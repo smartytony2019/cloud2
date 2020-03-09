@@ -9,28 +9,28 @@ import com.xinbo.cloud.common.enums.ResponseCodeEnum;
 public class ResultFactory {
 
 
-    public static ActionResult Success() {
+    public static ActionResult success() {
         return ActionResult.builder().code(ResponseCodeEnum.SUCCESS.value()).build();
     }
 
-    public static ActionResult Success(Object data) {
+    public static ActionResult success(Object data) {
         return ActionResult.builder().code(ResponseCodeEnum.SUCCESS.value()).data(data).build();
     }
 
-    public static ActionResult Success(Object data, String msg) {
+    public static ActionResult success(Object data, String msg) {
         return ActionResult.builder().code(ResponseCodeEnum.SUCCESS.value()).data(data).msg(msg).build();
     }
 
 
-    public static ActionResult Error() {
+    public static ActionResult error() {
         return ActionResult.builder().code(ResponseCodeEnum.FAILURE.value()).build();
     }
 
-    public static ActionResult Error(Object data) {
+    public static ActionResult error(Object data) {
         return ActionResult.builder().code(ResponseCodeEnum.FAILURE.value()).data(data).build();
     }
 
-    public static ActionResult Error(Object data, String msg) {
+    public static ActionResult error(Object data, String msg) {
         return ActionResult.builder().code(ResponseCodeEnum.FAILURE.value()).data(data).msg(msg).build();
     }
 }

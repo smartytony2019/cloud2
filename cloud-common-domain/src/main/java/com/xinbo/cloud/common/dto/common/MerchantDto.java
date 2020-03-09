@@ -1,10 +1,5 @@
-package com.xinbo.cloud.common.dto.platform;
+package com.xinbo.cloud.common.dto.common;
 
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
@@ -74,6 +69,15 @@ public class MerchantDto {
      * 备注
      */
     private String Remark;
+
+    /**
+     * 状态标签
+     */
+    private String statusLable;
+
+    public String getStatusLable() {
+        return this.Status ? "开启": "禁用";
+    }
 
     /**
      * 排序
@@ -191,4 +195,8 @@ public class MerchantDto {
     public void setSort(int sort) {
         Sort = sort;
     }
+
+
+
+
 }

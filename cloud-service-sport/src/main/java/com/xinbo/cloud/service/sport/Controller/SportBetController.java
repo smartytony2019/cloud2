@@ -8,7 +8,7 @@ import com.xinbo.cloud.common.dto.ResultFactory;
 import com.xinbo.cloud.common.vo.common.UserVo;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
-import com.xinbo.cloud.common.dto.platform.UserDto;
+import com.xinbo.cloud.common.dto.common.UserDto;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,14 +20,14 @@ public class SportBetController {
     @ApiOperation("提交注单")
     @GetMapping("submit")
     public ActionResult Submit() {
-        return ResultFactory.Success();
+        return ResultFactory.success();
     }
 
     @ApiOperation("test")
     @PostMapping("test")
     public ActionResult Test(@RequestBody UserVo userVO) {
 
-        return ResultFactory.Success(userVO);
+        return ResultFactory.success(userVO);
     }
 
     @GetMapping("test2/{username}/{password}")
@@ -41,7 +41,7 @@ public class SportBetController {
         Map<String, String> map = new HashMap<String, String>();
         map.put("username", username);
         map.put("password", password);
-        return ResultFactory.Success(dto);
+        return ResultFactory.success(dto);
     }
 
 }

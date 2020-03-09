@@ -1,17 +1,15 @@
 package com.xinbo.cloud.service.sport.Controller;
 
-import com.github.dozermapper.core.DozerBeanMapperBuilder;
-import com.github.dozermapper.core.Mapper;
 import com.github.pagehelper.PageInfo;
 import com.xinbo.cloud.common.Util.MapperUtil;
 import com.xinbo.cloud.common.domain.common.Merchant;
-import com.xinbo.cloud.common.dto.platform.MerchantDto;
+import com.xinbo.cloud.common.dto.PageDto;
+import com.xinbo.cloud.common.dto.common.MerchantDto;
 import com.xinbo.cloud.common.dto.ActionResult;
 import com.xinbo.cloud.common.dto.ResultFactory;
 import com.xinbo.cloud.common.service.common.MerchantService;
 import com.xinbo.cloud.common.vo.common.MerchantVo;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.models.HttpMethod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
@@ -32,11 +30,11 @@ public class MerchantController {
      * @return
      */
     @ApiOperation(value = "获取商户", notes = "")
-    @PostMapping("get")
+    @GetMapping("get")
     public ActionResult get(@RequestParam(name="merchantId") long merchantId) {
         Merchant merchant = merchantService.get(merchantId);
         MerchantDto dto = MapperUtil.to(merchant, MerchantDto.class);
-        return ResultFactory.Success(dto);
+        return ResultFactory.success(dto);
     }
 
 
@@ -47,11 +45,10 @@ public class MerchantController {
     @ApiOperation(value = "获取集合", notes = "")
     @GetMapping("list")
     public ActionResult list() {
-        long merchantId = 1230835262695804929L;
-        Merchant m = Merchant.builder().MerchantCode("xb120").MerchantName("新博120").build();
-        Merchant merchant = merchantService.getByFields(m);
-        MerchantDto dto = MapperUtil.to(merchant, MerchantDto.class);
-        return ResultFactory.Success(dto);
+
+        List<Merchant> list = merchantService.getAll();
+        List<MerchantDto> dtos = MapperUtil.many(list,MerchantDto.class);
+        return ResultFactory.success(dtos);
     }
 
 
@@ -59,8 +56,8 @@ public class MerchantController {
     @PostMapping("save")
     public ActionResult save(@RequestBody MerchantVo merchantVo) {
         Merchant merchant = MapperUtil.to(merchantVo, Merchant.class);
-        int result = merchantService.save(merchant);
-        return result > 0 ? ResultFactory.Success() : ResultFactory.Error();
+        int result = merchantService.add(merchant);
+        return result > 0 ? ResultFactory.success() : ResultFactory.error();
     }
 
 
@@ -68,13 +65,15 @@ public class MerchantController {
     @PostMapping("page")
     public ActionResult page() {
         Merchant merchant = Merchant.builder().Status(true).build();
-        PageInfo<Merchant> pageinfo =  merchantService.page(merchant, 1, 2);
-        return ResultFactory.Success(pageinfo);
+        PageDto<MerchantDto> pageinfo =  merchantService.page(merchant, 1, 2);
+        return ResultFactory.success(pageinfo);
     }
 
 
     public ActionResult update() {
-        merchantService.update();
+
+//        merchantService.update();
+        return ResultFactory.success();
     }
 
 

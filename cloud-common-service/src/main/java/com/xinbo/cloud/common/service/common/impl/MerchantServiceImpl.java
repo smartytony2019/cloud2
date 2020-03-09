@@ -2,7 +2,11 @@ package com.xinbo.cloud.common.service.common.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.xinbo.cloud.common.Util.MapperUtil;
+import com.xinbo.cloud.common.Util.PageUtil;
 import com.xinbo.cloud.common.domain.common.Merchant;
+import com.xinbo.cloud.common.dto.PageDto;
+import com.xinbo.cloud.common.dto.common.MerchantDto;
 import com.xinbo.cloud.common.mapper.common.MerchantMapper;
 import com.xinbo.cloud.common.service.common.MerchantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,13 +88,15 @@ public class MerchantServiceImpl implements MerchantService {
 
 
     @Override
-    public PageInfo<Merchant> page(Merchant merchant, int pageNum, int pageSize) {
+    public PageDto<MerchantDto> page(Merchant merchant, int pageNum, int pageSize) {
         Example example = new Example(Merchant.class);
         example.createCriteria().andEqualTo("Status", merchant.isStatus());
 
         PageHelper.startPage(pageNum, pageSize);
         PageInfo<Merchant> pageInfo = new PageInfo<Merchant>(merchantMapper.selectByExample(example));
-        return pageInfo;
+
+        PageDto<MerchantDto> pageDto = PageUtil.to(pageInfo, MerchantDto.class);
+        return pageDto;
     }
 
 

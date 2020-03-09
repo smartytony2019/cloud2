@@ -3,6 +3,8 @@ package com.xinbo.cloud.common.service.common;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import com.xinbo.cloud.common.domain.common.Merchant;
+import com.xinbo.cloud.common.dto.PageDto;
+import com.xinbo.cloud.common.dto.common.MerchantDto;
 
 import java.util.List;
 
@@ -62,7 +64,7 @@ public interface MerchantService {
      * @param pageSize  条数
      * @return
      */
-    PageInfo<Merchant> page(Merchant merchant, int pageNum, int pageSize);
+    PageDto<MerchantDto> page(Merchant merchant, int pageNum, int pageSize);
 
     /**
      * 保存
