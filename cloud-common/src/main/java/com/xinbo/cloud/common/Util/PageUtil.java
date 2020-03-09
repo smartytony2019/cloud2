@@ -15,10 +15,10 @@ public class PageUtil {
 
     /**
      * 分页转换
-     * @param pageInfo
-     * @param target
-     * @param <Source>
-     * @param <Target>
+     * @param pageInfo    分页数据
+     * @param target      转换的类
+     * @param <Source>    源类
+     * @param <Target>    目标类
      * @return
      */
     public static <Source, Target> PageDto<Target> to(PageInfo<Source> pageInfo, Class<Target> target) {

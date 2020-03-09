@@ -18,33 +18,20 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>tk.mybatis</groupId>
-            <artifactId>mapper-spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
 
 
-        <dependency>
-            <groupId>com.xinbo</groupId>
-            <artifactId>cloud-common-service</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.xinbo</groupId>-->
+<!--            <artifactId>cloud-common-service</artifactId>-->
+<!--            <version>${project.parent.version}</version>-->
+<!--        </dependency>-->
 
         <dependency>
-            <groupId>com.xinbo</groupId>
-            <artifactId>cloud-common-vo</artifactId>
-            <version>${project.parent.version}</version>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
+
     </dependencies>
 
 </project>

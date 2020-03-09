@@ -1,10 +1,13 @@
 package com.xinbo.cloud.common.enums;
 
-import cn.hutool.http.HttpStatus;
+
 import com.xinbo.cloud.common.constant.ApiStatus;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+/**
+ * 响应码枚举
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 public enum ResponseCodeEnum {
