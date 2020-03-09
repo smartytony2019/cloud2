@@ -1,7 +1,7 @@
-package com.xinbo.cloud.common.service.platform.impl;
+package com.xinbo.cloud.common.service.common.impl;
 
-import com.xinbo.cloud.common.domain.platform.User;
-import com.xinbo.cloud.common.service.platform.UserService;
+import com.xinbo.cloud.common.domain.common.User;
+import com.xinbo.cloud.common.service.common.UserService;
 import org.springframework.stereotype.Service;
 
 @Service("userServiceImpl")

@@ -1,7 +1,7 @@
-package com.xinbo.cloud.common.mapper.platform;
+package com.xinbo.cloud.common.mapper.common;
 
 
-import com.xinbo.cloud.common.domain.platform.User;
+import com.xinbo.cloud.common.domain.common.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

@@ -10,8 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-sport-task-consumer-bet</artifactId>
-
+    <artifactId>cloud-task-sport-consumer-bet</artifactId>
 
     <dependencies>
         <dependency>

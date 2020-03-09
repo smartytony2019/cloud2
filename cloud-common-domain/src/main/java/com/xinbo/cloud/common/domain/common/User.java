@@ -1,4 +1,4 @@
-package com.xinbo.cloud.common.domain.platform;
+package com.xinbo.cloud.common.domain.common;
 
 
 import lombok.*;
@@ -10,6 +10,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "userinfo")
 public class User {
 
     private static final long serialVersionUID = -1840831686851699943L;

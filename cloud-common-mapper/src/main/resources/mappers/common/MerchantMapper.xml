@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xinbo.cloud.common.mapper.common.MerchantMapper">
+
+    <!-- 获取单条数据 -->
+    <select id="getLimit">
+        select * from `merchant`
+        <if test="order != null and order != ''">
+            order by #{order}
+        </if>
+        limit #{limit}
+    </select>
+
+
+    <!-- 获取单条数据 -->
+    <select id="getLimitByMerchant">
+        select * from `merchant` where 1=1
+        <if test="merchant.MerchantCode != null and merchant.MerchantCode != ''">
+            and MerchantCode = #{merchant.MerchantCode}
+        </if>
+        <if test="merchant.MerchantName != null and merchant.MerchantName != ''">
+            and MerchantName = #{merchant.MerchantName}
+        </if>
+
+        <if test="order != null and order != ''">
+            order by #{order}
+        </if>
+        limit #{limit}
+    </select>
+
+
+
+
+    <insert id="save">
+        insert  into `merchant`
+        (
+            `MerchantCode`,`MerchantName`,`AddTime`,`Status`,`MerchantKey`,
+            `PassWord`,`ApiAddress`,`Remark`,`Sort`,`DataNode`)
+        values
+        (
+            #{merchant.MerchantCode},#{merchant.MerchantName},#{merchant.AddTime},#{merchant.Status},#{merchant.MerchantKey},
+            #{merchant.PassWord},#{merchant.ApiAddress},#{merchant.Remark},#{merchant.Sort},#{merchant.DataNode}
+        );
+    </insert>
+
+    <update id="updateFields">
+        update `merchant` set
+            `MerchantCode`=#{merchant.MerchantCode},
+            `MerchantName`=#{merchant.MerchantName}
+        where `id` = #{merchant.MerchantId}
+    </update>
+    
+
+    <delete id="deleteById">
+        DELETE
+        FROM `orm_user`
+        WHERE `id` = #{id}
+    </delete>
+</mapper>

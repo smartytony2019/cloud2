@@ -1,4 +1,4 @@
-package com.xinbo.cloud.common.domain.platform;
+package com.xinbo.cloud.common.vo.common;
 
 
 import lombok.AllArgsConstructor;
@@ -12,10 +12,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Merchant {
-
-
-    private static final long serialVersionUID = -1841231686851699943L;
+public class MerchantVo {
 
     /**
      * 商户id
