@@ -1,30 +1,27 @@
 package com.xinbo.cloud.service.cache.controller;
 
+import com.xinbo.cloud.common.dto.ActionResult;
+import com.xinbo.cloud.common.vo.common.SetVo;
+import com.xinbo.cloud.service.cache.service.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
-import org.springframework.data.redis.serializer.StringRedisSerializer;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("cache")
 public class RedisController {
 
     @Autowired
-    private RedisTemplate redisTemplate;
+    private RedisService redisService;
 
+    @PostMapping("set")
+    public String set(@RequestBody SetVo setVo) {
+        redisService.set(setVo.getKey(), setVo.getValue());
+        return "ok";
+    }
 
-    @GetMapping("/set")
-    public String set() {
-
-        // key序列化
-        redisTemplate.setKeySerializer(new StringRedisSerializer());
-        //val实例化
-        redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());
-
-        redisTemplate.opsForValue().set("aaaa","bbbbbbb");
-        redisTemplate.opsForList().leftPush("TestList", "TestLeftPush");
-        return "success";
+    @GetMapping("get/{key}")
+    public Object get(@PathVariable String key) {
+        return redisService.get(key);
     }
 
 }

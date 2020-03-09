@@ -1,4 +1,4 @@
-package com.xinbo.cloud.common.domain.common;
+package com.xinbo.cloud.common.domain.platform;
 
 
 import lombok.AllArgsConstructor;

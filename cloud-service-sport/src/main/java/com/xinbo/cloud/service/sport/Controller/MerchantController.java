@@ -2,11 +2,11 @@ package com.xinbo.cloud.service.sport.Controller;
 
 import com.github.dozermapper.core.DozerBeanMapperBuilder;
 import com.github.dozermapper.core.Mapper;
-import com.xinbo.cloud.common.domain.common.Merchant;
-import com.xinbo.cloud.common.dto.common.MerchantDto;
+import com.xinbo.cloud.common.domain.platform.Merchant;
+import com.xinbo.cloud.common.dto.platform.MerchantDto;
 import com.xinbo.cloud.common.dto.ActionResult;
 import com.xinbo.cloud.common.dto.ResultFactory;
-import com.xinbo.cloud.common.service.common.MerchantService;
+import com.xinbo.cloud.common.service.platform.MerchantService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

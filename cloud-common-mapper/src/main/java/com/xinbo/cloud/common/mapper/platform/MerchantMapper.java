@@ -1,6 +1,6 @@
-package com.xinbo.cloud.common.mapper.common;
+package com.xinbo.cloud.common.mapper.platform;
 
-import com.xinbo.cloud.common.domain.common.Merchant;
+import com.xinbo.cloud.common.domain.platform.Merchant;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

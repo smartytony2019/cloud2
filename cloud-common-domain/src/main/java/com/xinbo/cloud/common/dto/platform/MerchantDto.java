@@ -1,4 +1,4 @@
-package com.xinbo.cloud.common.dto.common;
+package com.xinbo.cloud.common.dto.platform;
 
 
 import lombok.AllArgsConstructor;

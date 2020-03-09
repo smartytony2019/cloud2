@@ -1,18 +1,18 @@
-package com.xinbo.cloud.common.dto.common;
+package com.xinbo.cloud.common.domain.platform;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import javax.persistence.Table;
 import java.util.Date;
 
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
+public class User {
+
+    private static final long serialVersionUID = -1840831686851699943L;
 
     /**
      * 主键
@@ -37,7 +37,7 @@ public class UserDto {
     /**
      * 邮箱
      */
-//    private String email;
+    private String email;
 
     /**
      * 手机号码

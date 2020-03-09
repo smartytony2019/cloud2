@@ -1,6 +1,6 @@
-package com.xinbo.cloud.common.service.common;
+package com.xinbo.cloud.common.service.platform;
 
-import com.xinbo.cloud.common.domain.common.Merchant;
+import com.xinbo.cloud.common.domain.platform.Merchant;
 
 import java.util.List;
 
