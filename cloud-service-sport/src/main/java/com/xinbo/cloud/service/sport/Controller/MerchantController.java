@@ -32,11 +32,9 @@ public class MerchantController {
      * @return
      */
     @ApiOperation(value = "获取商户", notes = "")
-    @GetMapping("get")
-    public ActionResult get() {
-        long merchantId = 1230835262695804929L;
-        List<Merchant> list = merchantService.get(merchantId);
-        Merchant merchant = list.get(0);
+    @PostMapping("get")
+    public ActionResult get(@RequestParam(name="merchantId") long merchantId) {
+        Merchant merchant = merchantService.get(merchantId);
         MerchantDto dto = MapperUtil.to(merchant, MerchantDto.class);
         return ResultFactory.Success(dto);
     }
@@ -50,8 +48,8 @@ public class MerchantController {
     @GetMapping("list")
     public ActionResult list() {
         long merchantId = 1230835262695804929L;
-        List<Merchant> list = merchantService.get(merchantId);
-        Merchant merchant = list.get(0);
+        Merchant m = Merchant.builder().MerchantCode("xb120").MerchantName("新博120").build();
+        Merchant merchant = merchantService.getByFields(m);
         MerchantDto dto = MapperUtil.to(merchant, MerchantDto.class);
         return ResultFactory.Success(dto);
     }

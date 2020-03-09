@@ -50,10 +50,4 @@
         where `id` = #{merchant.MerchantId}
     </update>
     
-
-    <delete id="deleteById">
-        DELETE
-        FROM `orm_user`
-        WHERE `id` = #{id}
-    </delete>
 </mapper>

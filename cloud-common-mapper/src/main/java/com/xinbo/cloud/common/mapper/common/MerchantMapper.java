@@ -18,11 +18,11 @@ public interface MerchantMapper extends MyMapper<Merchant> {
      * @param merchant
      * @return
      */
-    @Select("select * from merchant where MerchantCode=#{merchant.MerchantCode}, MerchantName=#{merchant.MerchantName} limit 1")
+    @Select("select * from merchant where MerchantCode=#{merchant.MerchantCode} and MerchantName=#{merchant.MerchantName} limit 1")
     Merchant getByFields(@Param("merchant") Merchant merchant);
 
 
-    @Select("select * from merchant where MerchantCode=#{merchant.MerchantCode}, MerchantName=#{merchant.MerchantName}")
+    @Select("select * from merchant where MerchantCode=#{merchant.MerchantCode} and MerchantName=#{merchant.MerchantName}")
     List<Merchant> getAllByField(@Param("merchant") Merchant merchant);
 
     /**
