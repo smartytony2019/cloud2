@@ -5,10 +5,13 @@ package com.xinbo.cloud.common.constant;
  */
 public interface ApiStatus {
 
+    //成功
     int SUCCESS = 0;
 
+    //失败
     int FAILURE = 50;
 
+    //未认证
     int UNAUTHORIZED = 401;
 
 }

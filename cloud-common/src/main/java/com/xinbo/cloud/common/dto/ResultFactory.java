@@ -8,29 +8,39 @@ import com.xinbo.cloud.common.enums.ResponseCodeEnum;
  */
 public class ResultFactory {
 
-
+    /**
+     * 成功
+     * @return
+     */
     public static ActionResult success() {
         return ActionResult.builder().code(ResponseCodeEnum.SUCCESS.value()).build();
     }
 
+    /**
+     * 成功
+     * @param data
+     * @return
+     */
     public static ActionResult success(Object data) {
         return ActionResult.builder().code(ResponseCodeEnum.SUCCESS.value()).data(data).build();
     }
 
-    public static ActionResult success(Object data, String msg) {
-        return ActionResult.builder().code(ResponseCodeEnum.SUCCESS.value()).data(data).msg(msg).build();
-    }
 
 
+    /**
+     * 失败
+     * @return
+     */
     public static ActionResult error() {
         return ActionResult.builder().code(ResponseCodeEnum.FAILURE.value()).build();
     }
 
-    public static ActionResult error(Object data) {
-        return ActionResult.builder().code(ResponseCodeEnum.FAILURE.value()).data(data).build();
-    }
-
-    public static ActionResult error(Object data, String msg) {
-        return ActionResult.builder().code(ResponseCodeEnum.FAILURE.value()).data(data).msg(msg).build();
+    /**
+     * 失败
+     * @param msg   失败内容
+     * @return
+     */
+    public static ActionResult error(String msg) {
+        return ActionResult.builder().code(ResponseCodeEnum.FAILURE.value()).msg(msg).build();
     }
 }

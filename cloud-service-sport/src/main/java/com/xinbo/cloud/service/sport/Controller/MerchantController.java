@@ -70,6 +70,7 @@ public class MerchantController {
     }
 
 
+
     public ActionResult update() {
 
 //        merchantService.update();

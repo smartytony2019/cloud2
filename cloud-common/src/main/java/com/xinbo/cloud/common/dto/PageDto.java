@@ -13,9 +13,14 @@ import java.util.List;
 @AllArgsConstructor
 public class PageDto<T> {
 
-
+    /**
+     * 总条数
+     */
     private long total;
 
+    /**
+     * 数据
+     */
     private List<T> list;
 
 }
