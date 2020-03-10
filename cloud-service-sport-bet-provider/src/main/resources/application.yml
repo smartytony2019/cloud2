@@ -1,0 +1,63 @@
+
+server:
+  port: 7080
+
+spring:
+  application:
+    name: cloud-service-sport-bet
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/spring-boot-demo?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false&serverTimezone=GMT%2B8
+#    url: jdbc:mysql://10.9.10.232:3306/xinbo?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false&serverTimezone=GMT%2B8
+    username: root
+    password: xinbo123321
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    initialization-mode: always
+    continue-on-error: true
+#    schema:
+#      - "classpath:db/schema.sql"
+#    data:
+#      - "classpath:db/data.sql"
+    hikari:
+      minimum-idle: 5
+      connection-test-query: SELECT 1 FROM DUAL
+      maximum-pool-size: 20
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: SpringBootDemoHikariCP
+      max-lifetime: 60000
+      connection-timeout: 30000
+logging:
+  level:
+    com.xkcoding: debug
+    com.xkcoding.orm.mybatis.MapperAndPage.mapper: trace
+mybatis:
+  configuration:
+    # 下划线转驼峰
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mappers/common/*.xml,classpath:mappers/sport/*.xml,classpath:mappers/lottery/*.xml
+  type-aliases-package: com.xinbo.cloud.common.domain
+mapper:
+  mappers:
+    - tk.mybatis.mapper.MyMapper
+  not-empty: true
+  style: camelhump
+  wrap-keyword: "`{0}`"
+  safe-delete: true
+  safe-update: true
+  identity: MYSQL
+pagehelper:
+  auto-dialect: true
+  helper-dialect: mysql
+  reasonable: true
+  params: count=countSql
+
+
+rocketmq:
+  name-server: 192.168.1.100:9876
+  producer:
+    group: sport-group
+    send-message-timeout: 300000
+  mytopic: sport-bet-topic
+

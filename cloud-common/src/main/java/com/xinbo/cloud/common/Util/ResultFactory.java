@@ -1,6 +1,7 @@
-package com.xinbo.cloud.common.dto;
+package com.xinbo.cloud.common.Util;
 
 
+import com.xinbo.cloud.common.dto.ActionResult;
 import com.xinbo.cloud.common.enums.ResponseCodeEnum;
 
 /**

@@ -1,12 +1,11 @@
 package com.xinbo.cloud.service.sport.Controller;
 
-import com.github.pagehelper.PageInfo;
 import com.xinbo.cloud.common.Util.MapperUtil;
 import com.xinbo.cloud.common.domain.common.Merchant;
 import com.xinbo.cloud.common.dto.PageDto;
 import com.xinbo.cloud.common.dto.common.MerchantDto;
 import com.xinbo.cloud.common.dto.ActionResult;
-import com.xinbo.cloud.common.dto.ResultFactory;
+import com.xinbo.cloud.common.Util.ResultFactory;
 import com.xinbo.cloud.common.service.common.MerchantService;
 import com.xinbo.cloud.common.vo.common.MerchantVo;
 import io.swagger.annotations.ApiOperation;

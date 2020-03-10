@@ -4,7 +4,7 @@ package com.xinbo.cloud.service.sport.Controller;
 import com.xinbo.cloud.common.Util.MapperUtil;
 import com.xinbo.cloud.common.domain.common.User;
 import com.xinbo.cloud.common.dto.ActionResult;
-import com.xinbo.cloud.common.dto.ResultFactory;
+import com.xinbo.cloud.common.Util.ResultFactory;
 import com.xinbo.cloud.common.vo.common.UserVo;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
