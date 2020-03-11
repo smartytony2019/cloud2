@@ -7,8 +7,8 @@ spring:
     name: cloud-service-sport-bet
 
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/spring-boot-demo?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false&serverTimezone=GMT%2B8
-#    url: jdbc:mysql://10.9.10.232:3306/xinbo?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false&serverTimezone=GMT%2B8
+#    url: jdbc:mysql://127.0.0.1:3306/spring-boot-demo?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false&serverTimezone=GMT%2B8
+    url: jdbc:mysql://10.9.10.232:3306/xinbo?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false&serverTimezone=GMT%2B8
     username: root
     password: xinbo123321
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -55,7 +55,7 @@ pagehelper:
 
 
 rocketmq:
-  name-server: 192.168.1.100:9876
+  name-server: 10.9.10.221:9876
   producer:
     group: sport-group
     send-message-timeout: 300000

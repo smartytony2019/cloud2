@@ -32,6 +32,4 @@ public class BetController {
         SendResult sendResult = rocketMQTemplate.syncSend(sportBetTopic, MessageBuilder.withPayload(message).build());
         return ResultFactory.success(sendResult);
     }
-
-
 }
