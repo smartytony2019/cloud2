@@ -3,8 +3,3 @@ server:
 spring:
   application:
     name: cloud-service-oauth
-jwt:
-  secret: javainuse
-  get:
-    token:
-      uri: /authenticate
