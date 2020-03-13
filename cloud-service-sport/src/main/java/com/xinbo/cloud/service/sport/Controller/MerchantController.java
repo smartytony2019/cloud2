@@ -9,6 +9,7 @@ import com.xinbo.cloud.common.Util.ResultFactory;
 import com.xinbo.cloud.common.service.common.MerchantService;
 import com.xinbo.cloud.common.vo.common.MerchantVo;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
