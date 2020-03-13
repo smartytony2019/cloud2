@@ -1,5 +1,7 @@
 package com.xinbo.cloud.service.oauth.second;
 
+import cn.hutool.core.util.StrUtil;
+import com.google.common.collect.Lists;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -8,9 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 
 @Component
@@ -25,6 +25,14 @@ public class JwtTokenUtil implements Serializable {
 
     public String getUsernameFromToken(String token) {
         return getClaimFromToken(token, Claims::getSubject);
+    }
+
+    public long getUserId(String token) throws Exception {
+        String tmp = getClaimFromToken(token, Claims::getId);
+        if(StrUtil.isEmpty(tmp)) {
+            throw new Exception("userid not foud");
+        }
+        return Long.parseLong(tmp);
     }
 
     public Date getIssuedAtDateFromToken(String token) {
@@ -44,6 +52,26 @@ public class JwtTokenUtil implements Serializable {
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
     }
 
+
+    public Map<String,Object> test(String token) {
+        Claims claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+        Optional<Claims> optional = Optional.of(claims);
+        if(optional.isPresent()){
+            Map<String,Object> info = new HashMap<String,Object>();
+            Set<String> keySet = optional.get().keySet();
+            //通过迭代，提取token中的参数信息
+            Iterator<String> iterator = keySet.iterator();
+            while(iterator.hasNext()){
+                String key = iterator.next();
+                Object value =  optional.get().get(key);
+                info.put(key,value);
+            }
+            return info;
+        }
+        return null;
+    }
+
+
     private Boolean isTokenExpired(String token) {
         final Date expiration = getExpirationDateFromToken(token);
         return expiration.before(new Date());
@@ -56,12 +84,18 @@ public class JwtTokenUtil implements Serializable {
 
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
-        return doGenerateToken(claims, userDetails.getUsername());
+        claims.put("id",1);
+        claims.put("subject", userDetails.getUsername());
+        claims.put("roles", Lists.newArrayList(1,2,3,4));
+        return doGenerateToken(claims);
     }
 
-    private String doGenerateToken(Map<String, Object> claims, String subject) {
+    private String doGenerateToken(Map<String, Object> claims) {
 
-        return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
+        String id = claims.get("id").toString();
+        String subject = claims.get("subject").toString();
+
+        return Jwts.builder().setClaims(claims).setId(id).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY*1000)).signWith(SignatureAlgorithm.HS512, secret).compact();
     }
 

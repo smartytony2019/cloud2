@@ -1,6 +1,5 @@
 package com.xinbo.cloud.service.oauth.second;
 
-import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -28,6 +27,7 @@ public class JwtRequestFilter  extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
 
+        /*
         final String requestTokenHeader = request.getHeader("Authorization");
 
         String username = null;
@@ -63,6 +63,31 @@ public class JwtRequestFilter  extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
             }
         }
+
+        */
+        String authHeader = request.getHeader("Authorization");
+        String tokenHead = "Bearer ";
+        if (authHeader != null && authHeader.startsWith(tokenHead)) {
+            final String authToken = authHeader.substring(tokenHead.length()); // The part after "Bearer "
+            String username = jwtTokenUtil.getUsernameFromToken(authToken);
+            logger.info("checking authentication " + username);
+            if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+                UserDetails userDetails = this.jwtUserDetailsService.loadUserByUsername(username);
+                if (jwtTokenUtil.validateToken(authToken, userDetails)) {
+                    UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                    authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                    logger.info("authenticated user " + username + ", setting security context");
+                    SecurityContextHolder.getContext().setAuthentication(authentication);
+                }
+            }
+        }
+
+
+
+
+
+
+
         chain.doFilter(request, response);
     }
 

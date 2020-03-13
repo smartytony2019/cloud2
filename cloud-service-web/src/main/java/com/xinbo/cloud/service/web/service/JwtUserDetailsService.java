@@ -1,4 +1,4 @@
-package com.xinbo.cloud.service.oauth.second;
+package com.xinbo.cloud.service.web.service;
 
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,16 +11,11 @@ import java.util.ArrayList;
 
 @Service
 public class JwtUserDetailsService implements UserDetailsService {
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        BCryptPasswordEncoder encoder =new BCryptPasswordEncoder();
-        if ("admin".equals(username)) {
-            return new User("admin", encoder.encode("123456"),new ArrayList<>());
-        } else {
-            throw new UsernameNotFoundException("User not found with username: " + username);
-        }
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        User user = new User("admin", encoder.encode("123456"), new ArrayList<>());
+        return user;
     }
-
 }

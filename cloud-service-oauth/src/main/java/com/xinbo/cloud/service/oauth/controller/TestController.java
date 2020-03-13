@@ -2,6 +2,7 @@ package com.xinbo.cloud.service.oauth.controller;
 
 import com.xinbo.cloud.service.oauth.second.JwtRequest;
 import com.xinbo.cloud.service.oauth.second.JwtTokenUtil;
+import com.xinbo.cloud.service.oauth.second.UserInfoFromJwt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -24,16 +25,17 @@ public class TestController {
     private JwtTokenUtil jwtTokenUtil;
 
     @Autowired
+    private UserInfoFromJwt userInfoFromJwt;
+
+    @Autowired
     private UserDetailsService jwtInMemoryUserDetailsService;
 
-    @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest)
-            throws Exception {
+    @RequestMapping(value = "/auth", method = RequestMethod.POST)
+    public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
 
         authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 
-        final UserDetails userDetails = jwtInMemoryUserDetailsService
-                .loadUserByUsername(authenticationRequest.getUsername());
+        final UserDetails userDetails = jwtInMemoryUserDetailsService.loadUserByUsername(authenticationRequest.getUsername());
 
         final String token = jwtTokenUtil.generateToken(userDetails);
 
@@ -55,6 +57,9 @@ public class TestController {
 
     @GetMapping("test")
     public String test() {
+
+        String username = userInfoFromJwt.userName();
+        Object object = userInfoFromJwt.test();
         return "Success";
     }
 
