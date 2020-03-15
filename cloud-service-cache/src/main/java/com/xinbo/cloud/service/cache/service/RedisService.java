@@ -1,5 +1,7 @@
 package com.xinbo.cloud.service.cache.service;
 
+import com.xinbo.cloud.service.cache.vo.ListVo;
+import com.xinbo.cloud.service.cache.vo.SetVo;
 import org.springframework.web.bind.annotation.PathVariable;
 
 public interface RedisService {
@@ -8,11 +10,10 @@ public interface RedisService {
         return null;
     }
 
-    void set(String key, Object value);
-
-    void set(String key, Object value, int second);
+    void set(SetVo setVo);
 
 
+    void push(ListVo listVo);
     
 
 }
