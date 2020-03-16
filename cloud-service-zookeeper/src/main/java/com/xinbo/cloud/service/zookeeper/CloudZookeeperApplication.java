@@ -9,7 +9,6 @@ import org.springframework.scheduling.annotation.Async;
 public class CloudZookeeperApplication {
     static int n = 20;
 
-    @Async
     public static void secskill() {
         if(n == 0) {
             return;

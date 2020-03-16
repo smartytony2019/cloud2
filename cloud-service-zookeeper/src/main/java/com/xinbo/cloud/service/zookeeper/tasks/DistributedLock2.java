@@ -61,7 +61,6 @@ public class DistributedLock2 implements Lock, Watcher {
         }
     }
 
-    @Async
     public void lock() {
         try {
             if(this.tryLock()){
